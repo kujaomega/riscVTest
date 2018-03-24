@@ -1,8 +1,8 @@
 #include "pcie_driver.h"
+
 #include <iostream>
 
 PCIeDriver::PCIeDriver(){
-	std::cout << "Instance initiated";
 }
 
 int PCIeDriver::getRandomInt()

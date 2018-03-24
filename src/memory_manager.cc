@@ -1,8 +1,12 @@
 #include "memory_manager.h"
+
 #include <iostream>
+#include "pcie_driver.h"
+
 
 MemManager::MemManager(){
-	std::cout << "Instance initiated";
+	cardMem = CardMem();
+	hostMem = HostMem();
 }
 
 int MemManager::getRandomInt()

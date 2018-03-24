@@ -2,7 +2,7 @@
 
 # Test requeriments
 
-RiscVDNN interface:
+- RiscVDNN interface:
 
  - Tensor allocateTensorOnDevice(HostMem* pointer, uint64 size): Allocate memory in the card for a tensor of size bytes. Manager returns where the tensor has been allocated.
 
@@ -32,4 +32,10 @@ Memory Manager constraints:
 
 
 Performance features of the Memory Manager:
+
  - Reduce the amount of reads and writes done from/o the card.
+
+
+# Questions
+
+ - 

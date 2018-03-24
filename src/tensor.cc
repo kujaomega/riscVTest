@@ -4,6 +4,5 @@
 
 Tensor::Tensor()
 {
-	std::cout << "Instance initiated";
 }
 

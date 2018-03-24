@@ -3,6 +3,7 @@
 
 #include "tensor.h"
 #include "host_mem.h"
+#include "memory_manager.h"
 #include "integral_types.h"
 
 class RiscVDNN {
@@ -29,6 +30,8 @@ public:
 //	Execute an operation to an already allocated tensor pointer.
 //	It means that the contents of the tensor has been modified
 	void tensorUpdated(Tensor* pointer);
+private:
+	MemManager memManager;
 };
 
 #endif  // RISCVDNN_H_

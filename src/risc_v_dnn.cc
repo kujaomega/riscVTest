@@ -5,11 +5,11 @@
 #include "host_mem.h"
 
 RiscVDNN::RiscVDNN() {
-	std::cout << "Instance initiated";
+	memManager = MemManager();
 }
 
 int RiscVDNN::getRandomString() {
-	return 0;
+	return 34;
 }
 
 Tensor* RiscVDNN::allocateTensorOnDevice(HostMem* pointer, uint64 size) {

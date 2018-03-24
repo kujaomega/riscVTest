@@ -1,11 +1,14 @@
 #include "host_mem.h"
+
 #include <iostream>
+#include "integral_types.h"
 
 HostMem::HostMem(){
-	std::cout << "Instance initiated";
+	usedMemory = 0;
 }
 
-int HostMem::getRandomInt()
-{
-	return 0;
+uint64 HostMem::getUsedMemory(){
+	return usedMemory;
 }
+
+const uint64 HostMem::TOTAL_SIZE = 64*1024*1024*1024;

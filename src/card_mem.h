@@ -1,10 +1,15 @@
-#ifndef CARDMEM_H_
-#define CARDMEM_H_
+#ifndef CARD_MEM_H_
+#define CARD_MEM_H_
+
+#include "integral_types.h"
 
 class CardMem{
 public:
 	CardMem();
-	int getRandomInt();
+	uint64 getUsedMemory();
+	static const uint64 TOTAL_SIZE;
+private:
+	uint64 usedMemory;
 };
 
-#endif  // CARDMEM_H_
+#endif  // CARD_MEM_H_

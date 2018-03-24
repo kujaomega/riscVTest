@@ -1,10 +1,15 @@
-#ifndef HOSTMEM_H_
-#define HOSTMEM_H_
+#ifndef HOST_MEM_H_
+#define HOST_MEM_H_
+
+#include "integral_types.h"
 
 class HostMem{
 public:
 	HostMem();
-	int getRandomInt();
+	uint64 getUsedMemory();
+	static const uint64 TOTAL_SIZE;
+private:
+	uint64 usedMemory;
 };
 
-#endif  // HOSTMEM_H_
+#endif  // HOST_MEM_H_

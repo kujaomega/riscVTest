@@ -1,8 +1,9 @@
-RiscVDNNTest
+# RiscVDNNTest
 
 # Test requeriments
 
 RiscVDNN interface:
+
  - Tensor allocateTensorOnDevice(HostMem* pointer, uint64 size): Allocate memory in the card for a tensor of size bytes. Manager returns where the tensor has been allocated.
 
  - void writeTensorToDevice(HostMem* dest_pointer, uint64 size, Tensor* orig_pointer): Request to write from host memory orig_pointer to an already allocated tensor in the card dest_pointer. Need to copy size bytes.
@@ -15,12 +16,14 @@ RiscVDNN interface:
 
 
 PCIe Driver Interface:
+
  - void writeData(HostMem* orig, uint64 size, CardMem* dest): Memory manager is requesting PCIe driver to copy data from host to the cart (size bytes).
 
  - void readData(CardMem* orig, uint64 size, HostMem* dest): Memory manager is requesting PCIe driver to copy data from card to the host(size bytes).
 
 
 Memory Manager constraints:
+
  - The card has only 1GB of main memory, the host has 64GB main memory. It is possible that riscVDNN library allocates at same time more than 1GB of tensor data. It is the manager responsibility to swap in and out tensors from the card transparently.
 
  - Memory Manager can only report "run out of memory" when:

@@ -33,9 +33,22 @@ Memory Manager constraints:
 
 Performance features of the Memory Manager:
 
- - Reduce the amount of reads and writes done from/o the card.
+ - Reduce the amount of reads and writes done from/to the card.
 
 
-# Questions
+# Solution
 
- - 
+There are some ideas to minimize the reads and writes.
+
+- We can allocate all the required data to the gpu and not free it until is necessary.
+
+- If we are going go allocate data of small size, we can create batches of the small data to read and write to minimize these reads and writes.
+
+- To accelerate the speed of these reads and writes, we can reduce some of the precision of the data. Using quantization to transform floating point numbers into narrow integers can be worthless, at least in inference[1]
+
+
+#References
+
+[1] [In-Datacenter Performance Analysis of a Tensor Processing Unit, N. P. Jouppi et al.](https://arxiv.org/ftp/arxiv/papers/1704/1704.04760.pdf)
+
+

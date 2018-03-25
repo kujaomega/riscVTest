@@ -12,12 +12,9 @@ RiscVDNN::RiscVDNN() {
 RiscVDNN::~RiscVDNN() {
 }
 
-int RiscVDNN::getRandomString() {
-	return 34;
-}
-
 Tensor* RiscVDNN::allocateTensorOnDevice(HostMem* pointer, uint64 size) {
 	// Memory manager allocate memory to the card for a tensor
+	// To improve the performance of this method, if the data to allocate is small, we can create batches of data to allocate
 	return memManager.allocateTensorOnDevice(pointer, size);
 }
 
@@ -28,6 +25,7 @@ void RiscVDNN::writeTensorToDevice(HostMem* dest_pointer, uint64 size, Tensor* o
 
 void RiscVDNN::readTensorFromDevice(Tensor* orig_pointer, uint64 size, HostMem* dest_pointer){
 	// Memory manager read from card and write contents to host
+	// To improve the performance of this method, we can create batches of data to read
 	memManager.readTensorFromDevice(orig_pointer, size, dest_pointer);
 }
 

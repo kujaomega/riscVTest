@@ -10,7 +10,6 @@ class RiscVDNN {
 public:
 	RiscVDNN();
 	~RiscVDNN();
-	int getRandomString();
 	Tensor* allocateTensorOnDevice(HostMem* pointer, uint64 size);
 	void writeTensorToDevice(HostMem* dest_pointer, uint64 size, Tensor* orig_pointer);
 	void readTensorFromDevice(Tensor* orig_pointer, uint64 size, HostMem* dest_pointer);

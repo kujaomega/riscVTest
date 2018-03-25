@@ -9,6 +9,7 @@
 class RiscVDNN {
 public:
 	RiscVDNN();
+	~RiscVDNN();
 	int getRandomString();
 
 //	Allocate memory in the card for a tensor of size bytes.
@@ -32,6 +33,7 @@ public:
 	void tensorUpdated(Tensor* pointer);
 private:
 	MemManager memManager;
+	PCIeDriver pcieDriver;
 };
 
 #endif  // RISCVDNN_H_

@@ -6,10 +6,8 @@
 class HostMem{
 public:
 	HostMem();
-	uint64 getUsedMemory();
-	static const uint64 TOTAL_SIZE;
-private:
-	uint64 usedMemory;
+	~HostMem();
+	uint64 getMemoryDirection();
 };
 
 #endif  // HOST_MEM_H_

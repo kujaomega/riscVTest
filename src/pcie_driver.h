@@ -5,10 +5,11 @@
 #include "card_mem.h"
 #include "integral_types.h"
 
+
 class PCIeDriver{
 public:
 	PCIeDriver();
-	int getRandomInt();
+	~PCIeDriver();
 	void writeData(HostMem* orig, uint64 size, CardMem* dest);
 	void readData(CardMem* orig, uint64 size, HostMem* dest);
 };

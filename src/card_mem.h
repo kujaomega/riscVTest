@@ -6,10 +6,8 @@
 class CardMem{
 public:
 	CardMem();
-	uint64 getUsedMemory();
-	static const uint64 TOTAL_SIZE;
-private:
-	uint64 usedMemory;
+	~CardMem();
+	uint64 getMemoryDirection();
 };
 
 #endif  // CARD_MEM_H_

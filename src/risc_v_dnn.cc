@@ -6,6 +6,10 @@
 
 RiscVDNN::RiscVDNN() {
 	memManager = MemManager();
+	pcieDriver = PCIeDriver();
+}
+
+RiscVDNN::~RiscVDNN() {
 }
 
 int RiscVDNN::getRandomString() {
@@ -14,25 +18,25 @@ int RiscVDNN::getRandomString() {
 
 Tensor* RiscVDNN::allocateTensorOnDevice(HostMem* pointer, uint64 size) {
 	// Memory manager allocate memory to the card for a tensor
-	Tensor tensor = Tensor();
-	return &tensor;
+	return memManager.allocateTensorOnDevice(pointer, size);
 }
 
 void RiscVDNN::writeTensorToDevice(HostMem* dest_pointer, uint64 size, Tensor* orig_pointer) {
 	// Memory manager write from host memory to an already allocated tensor in the card destination pointer.
-
+	pcieDriver.writeData(dest_pointer, size, orig_pointer);
 }
 
-void readTensorFromDevice(Tensor* orig_pointer, uint64 size, HostMem* dest_pointer){
+void RiscVDNN::readTensorFromDevice(Tensor* orig_pointer, uint64 size, HostMem* dest_pointer){
 	// Memory manager read from card and write contents to host
+	memManager.readTensorFromDevice(orig_pointer, size, dest_pointer);
 }
 
-void needInDevice(Tensor* pointer1, Tensor* pointer2, Tensor* pointer3){
+void RiscVDNN::needInDevice(Tensor* pointer1, Tensor* pointer2, Tensor* pointer3){
 	// Process something in the accelerator. Requests to memory manager that are actually in the card
-
+	memManager.needInDevice(pointer1, pointer2, pointer3);
 }
 
-void tensorUpdated(Tensor* pointer){
-	// execute operation on already allocated tensor pointer, contents tensor modified
-
+void RiscVDNN::tensorUpdated(Tensor* pointer){
+	// Execute operation on already allocated tensor pointer, contents tensor modified
+	memManager.updateTensor(pointer);
 }

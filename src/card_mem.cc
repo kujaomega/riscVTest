@@ -4,11 +4,12 @@
 #include "integral_types.h"
 
 CardMem::CardMem(){
-	usedMemory = 0;
 }
 
-uint64 CardMem::getUsedMemory(){
-	return usedMemory;
+CardMem::~CardMem(){
 }
 
-const uint64 CardMem::TOTAL_SIZE = 1*1024*1024*1024;
+uint64 CardMem::getMemoryDirection(){
+	// Its the memory direction of the card, example 1
+	return 1;
+}

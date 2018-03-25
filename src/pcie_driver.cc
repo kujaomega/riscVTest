@@ -5,16 +5,14 @@
 PCIeDriver::PCIeDriver(){
 }
 
-int PCIeDriver::getRandomInt()
-{
-	return 0;
+PCIeDriver::~PCIeDriver(){
 }
 
 void PCIeDriver::writeData(HostMem* orig, uint64 size, CardMem* dest){
-	// memory manager is requesting pcie to copy data from host to card
+	// PCIe Driver is copying the data from host to the card
 }
 
 
 void PCIeDriver::readData(CardMem* orig, uint64 size, HostMem* dest){
-	// memory manager is requesting pcie driver to copy data from card to the host
+	// PCIe Driver is copying the data from the card to the host
 }

@@ -4,11 +4,12 @@
 #include "integral_types.h"
 
 HostMem::HostMem(){
-	usedMemory = 0;
 }
 
-uint64 HostMem::getUsedMemory(){
-	return usedMemory;
+HostMem::~HostMem(){
 }
 
-const uint64 HostMem::TOTAL_SIZE = 64*1024*1024*1024;
+uint64 HostMem::getMemoryDirection(){
+	// Its the memory direction of the host, example 1
+	return 1;
+}

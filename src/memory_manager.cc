@@ -18,13 +18,13 @@ Tensor* MemManager::allocateTensorOnDevice(HostMem* pointer, uint64 size){
 	// If the tensor size is lower than the card max size, It proceed to allocate the tensor
 	// If It is going to allocate the tensor, It will check if there are much free memory for the tensor.
 	// If there are free memory, It will allocate the Tensor, if not, It will transfer all the allocated tensors to the host and then allocate the tensor.
-	// If exceeds the memory of the host, it will throw an out of memory exception.
+	// If exceeds the memory of the host, It will throw an out of memory exception.
 	Tensor *tensor = cardMem.allocateTensor(size);
 	return tensor;
 }
 
 void MemManager::readTensorFromDevice(Tensor* tensor, uint64 size, HostMem* dest_pointer){
-	//If the free memory of the host is lower than the size of the tensor, will throw an out of exception error.
+	//If the free memory of the host is lower than the size of the tensor, will throw an out of memory exception error.
 	pcieDriver.readData(tensor, size, dest_pointer);
 }
 

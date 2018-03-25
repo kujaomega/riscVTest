@@ -49,6 +49,6 @@ There are some ideas to minimize the reads and writes.
 
 #References
 
-[1] [In-Datacenter Performance Analysis of a Tensor Processing Unit, N. P. Jouppi et al.](https://arxiv.org/ftp/arxiv/papers/1704/1704.04760.pdf)
+[1] [In-Datacenter Performance Analysis of a Tensor Processing Unit, 2017, N. P. Jouppi et al.](https://arxiv.org/ftp/arxiv/papers/1704/1704.04760.pdf)
 
 
